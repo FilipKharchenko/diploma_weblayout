@@ -2700,7 +2700,6 @@ path {
     right: -300px;
     opacity: 0;
     transition: all .3s ease-in-out;
-    display: flex;
   }
 
   .header__right-search {
@@ -2708,6 +2707,7 @@ path {
   }
   
   .header__right-active {
+    display: flex;
     right: 50px;
     opacity: 1;
   }
