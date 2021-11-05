@@ -45,16 +45,6 @@ $( function() {
     collapsible: true,
     heightStyle: 'content',
   });
-
-  $( "#accordion-public" ).accordion({
-    animate: {
-      duration: 500,
-      easing: 'swing',
-    },
-    collapsible: true,
-    active: false,
-    heightStyle: 'content',
-  });
 });
 
 
@@ -267,7 +257,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Плавный переход по якорным ссылкам
   // Переход с каталога в галерею
   $(document).ready(function(){
-    $(".catalog__left, .accordion__content-right, .nav__list").on("click","a", function (event) {
+    $(".catalog__left, .accordion__content-right, .nav__list, .nav__list-burger").on("click","a", function (event) {
         event.preventDefault();
         let id  = $(this).attr('href');
         let  top = $(id).offset().top;
@@ -286,7 +276,6 @@ document.addEventListener('DOMContentLoaded', function () {
 // Анимация в секции events
 
 $('.events__btn').click(function() {
-  $('.events__more').css("display", "flex");
   $('.events__more').slideDown(500);
   $('.events__btn').addClass('events__btn-off');
 });
@@ -296,6 +285,7 @@ $('.events__btn').click(function() {
   $('.events__more-second').css("display", "flex");
   $('.events__btn').addClass('events__btn-off');
 });
+
 
 
 const eventsSlider = document.querySelector('.events__slider-container');
@@ -320,7 +310,7 @@ const eventsSlider = document.querySelector('.events__slider-container');
   
     if (window.innerWidth > 576) {
       eventsSlider.dataset.mobile = 'false';
-      if (eventsSlider.classList.contains('swiper-container-initialized')) {
+      if (eventsSlider.classList.contains('swiper-initialized')) {
         swiperEvents.destroy();
       }
     }
@@ -393,7 +383,7 @@ function animationItem(item, class1, class2, f) {
     item.classList.add(class1);
   setTimeout(function() {
     item.classList.add(class2)
-  }, 100);
+  }, 0);
 
  } else {
      item.classList.remove(class2);
@@ -461,7 +451,7 @@ function desktopSwiper() {
     publicSlider.dataset.desktop = 'false'
   }
   if (window.innerWidth <= 576) {
-    if (publicSlider.classList.contains('swiper-container-initialized')) {
+    if (publicSlider.classList.contains('swiper-initialized')) {
       swiperPublic.destroy();
     }
     publicSlider.dataset.desktop = 'true';
@@ -471,6 +461,7 @@ function desktopSwiper() {
 desktopSwiper()
 
 window.addEventListener('resize', () => {
+  console.log('resize')
   desktopSwiper();
 });
 
@@ -566,7 +557,7 @@ swiperProjects = new Swiper('.projects__swiper-container', {
       center: [55.7, 37.60],
       // Уровень масштабирования. Допустимые значения:
       // от 0 (весь мир) до 19.
-      zoom: 12,
+      zoom: 10,
   });
   
   // Создание геообъекта с типом точка (метка).
@@ -593,6 +584,7 @@ var selector = document.querySelector("input[type='tel']");
 var im = new Inputmask("+7 (999)-999-99-99");
 im.mask(selector);
 
+
 let inputName = document.querySelector('.contacts__input-name'); // Получаем input
 let regex = /[0-9-%]/g; // регулярка только цифры
  
@@ -613,7 +605,7 @@ let validateForms = function(selector, rules, successModal, yaGoal) {
         //   function: (name, value) => {
         //     const phone = selector.inputmask.unmaskedvalue();
         //     return Number(phone) && phone.length === 10;
-        // }
+        // },
       },
       submitHandler: function(form) {
         let formData = new FormData(form);
@@ -647,39 +639,6 @@ let validateForms = function(selector, rules, successModal, yaGoal) {
 }  
 
 validateForms('contacts__form', { email: {required: true, email: true}, tel: {required: true} }, '.thanks-popup', 'send goal');
-
-// new JustValidate('.contacts__form', {
-//   rules: {
-//     name: {
-//       required: true,
-//       minLength: 2,
-//       maxLength: 20,
-//       },
-//       tel: {
-//         required: true,
-//         function: (name, value) => {
-//           const phone = selector.inputmask.unmaskedvalue()
-//           return Number(phone) && phone.length === 10
-//       }
-//     },
-//     submitHandler: function(form) {
-
-//     }
-//   },
-  
-//   messages: {
-//     name: {
-//       required: 'Как вас зовут?',
-//       minLength: 'Недопустимое значение',
-//     },
-//     tel: {
-//       required: 'Укажите ваш телефон'
-//     },
-//   },
-// });
-
-  
-
 
 // FOOTER //
 

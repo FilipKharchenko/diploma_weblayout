@@ -2697,10 +2697,10 @@ path {
     padding-bottom: 5px;
     width: 25%;
     position: absolute;
-    right: -130px;
+    right: -300px;
     opacity: 0;
     transition: all .3s ease-in-out;
-    display: none;
+    display: flex;
   }
 
   .header__right-search {
@@ -2708,7 +2708,6 @@ path {
   }
   
   .header__right-active {
-    display: flex;
     right: 50px;
     opacity: 1;
   }
@@ -3348,14 +3347,13 @@ path {
   .header__right {
     top: 0;
     padding: 36px 0;
+    right: -1000px;
     width: 87%;
-    right: -800px;
     background-color: #000;
   }
 
   .header__right-active {
     left: 50px;
-    transition: all .5s ease-in-out;
   }
 
   .nav__input-top {
@@ -3964,7 +3962,6 @@ path {
   .header__right {
     align-items: flex-end;
     width: 100%;
-    /* left: 0; */
     background-color: rgba(0, 0, 0, 0.9);
     padding-top: 33px;
     padding-bottom: 15px;
@@ -4206,9 +4203,9 @@ path {
     display: none;
   }
 
-  .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
-    margin: 0 7.5px;
-  }
+  .swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0 var(--swiper-pagination-bullet-horizontal-gap,7.5px);
+}
   
   /*public*/
   .public__container {
@@ -4330,6 +4327,24 @@ path {
     opacity: .5;
     display: block;
   }
+
+  .public__left-item {
+    transition: all .5s ease-in-out;
+  }
+
+  .public__left-list .public__left-item {
+    transition: all .5s ease-in-out;
+  }
+
+  .public__left-list .public__left-item {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  .block-active .public__left-item {
+    opacity: 1;
+    transform: translateX(-0px);
+  }
   
   .public__left-item .animation-test {
     opacity: 1;
@@ -4357,7 +4372,6 @@ path {
     background-color: #C283F3;
     transform: rotate(-45deg);
   }
-
 
   .public__swiper-pagination {
     display: none;
@@ -5014,9 +5028,6 @@ path {
     margin-bottom: 20px;
   }
   
-.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
-    margin: 0 var(--swiper-pagination-bullet-horizontal-gap,7.5px);
-}
   /*public*/
   .public {
     margin-bottom: 52px;
