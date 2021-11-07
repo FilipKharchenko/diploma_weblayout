@@ -4337,8 +4337,8 @@ path {
   }
 
   .public__left-list .public__left-item {
-    opacity: 0;
-    transform: translateX(-100px);
+    opacity: 1;
+    transform: translateX(0px);
   }
 
   .block-active .public__left-item {
