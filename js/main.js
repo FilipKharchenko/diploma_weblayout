@@ -638,7 +638,7 @@ let validateForms = function(selector, rules, successModal, yaGoal) {
   });  
 }  
 
-validateForms('contacts__form', { email: {required: true, email: true}, tel: {required: true} }, '.thanks-popup', 'send goal');
+validateForms(selector, { email: {required: true, email: true}, tel: {required: true} }, '.thanks-popup', 'send goal');
 
 // FOOTER //
 
